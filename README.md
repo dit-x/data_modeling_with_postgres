@@ -1,8 +1,11 @@
 
 ## Table of Contents
 1. [ Project Description. ](#desc)
-2. [About Nigeria HFR](#about)
-3. [ Project Development](#dcue)
+2. [ Project Objective. ](#obj)
+3. [ Project Development](#dev)
+    * [ Data Pipeline Architecture ](#dpa)
+    * [ Entity Relationship Diagram ](#erd)
+    * [ Project Template ](#pt)
 4. [ References ](#ref)
 
 [//]: # (I must include tools section and add tools images, check proper README design tutorial)
@@ -18,7 +21,9 @@ This end-to-end data modeling project entails designing and implementing a data 
 
 </br>
 
+<a name='obj'></a>
 # ✅ Project Objective
+
 The project objective includes
 1. The design of an optimized **data ingestion pipeline architecture** 
 2. The design of the data warehouse **ERD (Entity Relationship Diagram)** for the data analytics team.
@@ -28,13 +33,14 @@ The project objective includes
  
 </br>
 
-<a name='dcue'></a>
+<a name='dev'></a>
 # 🛠Project Development
 
+<a name='dpa'></a>
 ## Data Pipeline Architecture
 ##### for architecture design -  https://app.diagrams.net/
 
-![Data-model-ETL](https://user-images.githubusercontent.com/55639062/181843973-07f241fa-5f4e-4b55-aa91-0c00c49d1273.png)
+![Data-model-ETL](https://user-images.githubusercontent.com/55639062/181859773-987d76e8-1158-440f-b8e5-9e7821f52cb2.png)
 
 The architecture is purposely designed to achieve the project objective:
 * `Data Source`: User log and song data are archived in file directories.
@@ -45,7 +51,7 @@ The architecture is purposely designed to achieve the project objective:
 * `Validation`: Data quality check that communicates the data accuracy between the source data and final data.
 * `Scheduler`: Since the data comes in batches, the pipeline is triggered when a new file drops in the file directory.
 
-
+<a name='erd'></a>
 ## ERD (Entity Relationship Diagram) Design
 The data model below shows a star schema optimized for queries on the song play analysis utilizing 3 levels of normalization (1NF, 2NF, and 3NF), where appropriate, using the song and log datasets.
 
@@ -72,3 +78,12 @@ The data model below shows a star schema optimized for queries on the song play 
 
 
 </br>
+
+<a name='pt'></a>
+## Project Template
+In addition to the data files, the project workspace includes five files:
+1. `test.ipynb` displays the first few rows of each table to check the database.
+1. `create_tables.py` drops and creates the postgres table. This drops (if exists) and create tables. *Run at the start of the project*
+1. `etl.ipynb` reads and processes a single file from song_data and log_data and loads the data into the tables. It contains a detailed explanation of the ETL process to the tables.
+1. `etl.py` reads and processes files from song_data and log_data and loads them into the tables.
+1. `sql_queries.py` contains all the SQL queries used to perform all SQL command to ingest data to DB
