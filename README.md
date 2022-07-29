@@ -28,8 +28,6 @@ The project objective includes
 1. The design of an optimized **data ingestion pipeline architecture** 
 2. The design of the data warehouse **ERD (Entity Relationship Diagram)** for the data analytics team.
 3. The implementation of **Data Extraction, Transformation and Loading (ETL)**.
-4. The **Automation and Scheduling** of the processes.
-5. The development **Data quality checks** to validate the source and destination data.
  
 </br>
 
@@ -40,7 +38,7 @@ The project objective includes
 ## Data Pipeline Architecture
 ##### for architecture design -  https://app.diagrams.net/
 
-![Data-model-ETL](https://user-images.githubusercontent.com/55639062/181859773-987d76e8-1158-440f-b8e5-9e7821f52cb2.png)
+![Data-model-ETL](https://user-images.githubusercontent.com/55639062/181861496-f679bac5-061a-45db-9581-6f419ff62f05.png)
 
 The architecture is purposely designed to achieve the project objective:
 * `Data Source`: User log and song data are archived in file directories.
@@ -48,8 +46,6 @@ The architecture is purposely designed to achieve the project objective:
 * `Ingestion`: Since the DWH is in Postgres, SQL insert commands together with python are used to load the data in DWH because of SQL readability and simplicity across the data team.
 * `Storage`: Data is stored in PostgreSQL for analytical purposes
 * `Visualization`: Analytics dashboard for business decisions.
-* `Validation`: Data quality check that communicates the data accuracy between the source data and final data.
-* `Scheduler`: Since the data comes in batches, the pipeline is triggered when a new file drops in the file directory.
 
 <a name='erd'></a>
 ## ERD (Entity Relationship Diagram) Design
